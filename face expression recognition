@@ -1,0 +1,177 @@
+import cv2
+from deepfaceimport DeepFace
+import matplotlib.pyplotasplt
+import openpyxl
+	
+image='trail1.jpg'
+img=cv2.imread(image) 
+predictions=DeepFace.analyze(img)
+predictions 
+predictions["dominant_emotion"] 
+wb=openpyxl.load_workbook('expressionsdb.xlsx') 
+ws=wb['Sheet1']  
+ws.cell(row=2,column=1).value=image 
+ws.cell(row=2,column=2).value=predictions["dominant_emotion"] 
+wb.save('expressiondb.xlsx') 
+plt.imshow(cv2.cvtColor(img,cv2.COLOR_BGR2RGB))
+
+predictions['dominant_emotion']
+
+faceCascade=cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml’)
+gray= cv2.cvtColor(img,cv2.COLOR_BGR2GRAY) 
+faces = faceCascade.detectMultiScale(gray,1.1,4)
+for(x, y, w, h) in faces:
+cv2.rectangle(img, (x, y), (x+w, y+h), (0, 255, 0), 2) 
+
+plt.imshow(img)
+
+font = cv2.FONT_HERSHEY_SIMPLEX 
+cv2.putText(img, 
+predictions['dominant_emotion'],
+            (100, 500),
+            font, 4,
+            (0, 100, 0),
+            6,
+            cv2.LINE_4);
+
+
+plt.imshow(cv2.cvtColor(img,cv2.COLOR_BGR2RGB))
+
+
+image='trail2.jpg'
+img=cv2.imread(image) 
+predictions=DeepFace.analyze(img)
+predictions 
+predictions["dominant_emotion"] 
+ws.cell(row=3,column=1).value=image 
+ws.cell(row=3,column=2).value=predictions["dominant_emotion"] 
+wb.save('expressiondb.xlsx') 
+plt.imshow(cv2.cvtColor(img,cv2.COLOR_BGR2RGB))
+
+predictions['dominant_emotion']
+
+faceCascade=cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml’)
+gray= cv2.cvtColor(img,cv2.COLOR_BGR2GRAY) 
+faces = faceCascade.detectMultiScale(gray,1.1,4)
+for(x, y, w, h) in faces:
+cv2.rectangle(img, (x, y), (x+w, y+h), (0, 255, 0), 2) 
+
+plt.imshow(img)
+
+font = cv2.FONT_HERSHEY_SIMPLEX 
+cv2.putText(img, 
+predictions['dominant_emotion'],
+            (100, 500),
+            font, 4,
+            (0, 100, 0),
+            6,
+            cv2.LINE_4);
+
+
+plt.imshow(cv2.cvtColor(img,cv2.COLOR_BGR2RGB))
+
+
+
+image='trail3.jpg'
+img=cv2.imread(image) 
+predictions=DeepFace.analyze(img)
+predictions 
+predictions["dominant_emotion"] 
+ws.cell(row=4,column=1).value=image 
+ws.cell(row=4,column=2).value=predictions["dominant_emotion"] 
+wb.save('expressiondb.xlsx') 
+plt.imshow(cv2.cvtColor(img,cv2.COLOR_BGR2RGB))
+
+predictions['dominant_emotion']
+
+faceCascade=cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml’)
+gray= cv2.cvtColor(img,cv2.COLOR_BGR2GRAY) 
+faces = faceCascade.detectMultiScale(gray,1.1,4)
+for(x, y, w, h) in faces:
+cv2.rectangle(img, (x, y), (x+w, y+h), (0, 255, 0), 2) 
+
+plt.imshow(img)
+
+font = cv2.FONT_HERSHEY_SIMPLEX 
+cv2.putText(img, 
+predictions['dominant_emotion'],
+            (100, 500),
+            font, 4,
+            (0, 100, 0),
+            6,
+            cv2.LINE_4);
+
+
+plt.imshow(cv2.cvtColor(img,cv2.COLOR_BGR2RGB))
+
+
+
+
+image='trail4.jpg'
+img=cv2.imread(image) 
+predictions=DeepFace.analyze(img)
+predictions 
+predictions["dominant_emotion"] 
+ws.cell(row=5,column=1).value=image 
+ws.cell(row=5,column=2).value=predictions["dominant_emotion"] 
+wb.save('expressiondb.xlsx') 
+plt.imshow(cv2.cvtColor(img,cv2.COLOR_BGR2RGB))
+
+predictions['dominant_emotion']
+
+faceCascade=cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml’)
+gray= cv2.cvtColor(img,cv2.COLOR_BGR2GRAY) 
+faces = faceCascade.detectMultiScale(gray,1.1,4)
+for(x, y, w, h) in faces:
+cv2.rectangle(img, (x, y), (x+w, y+h), (0, 255, 0), 2) 
+
+plt.imshow(img)
+
+font = cv2.FONT_HERSHEY_SIMPLEX 
+cv2.putText(img, 
+predictions['dominant_emotion'],
+            (100, 500),
+            font, 4,
+            (0, 100, 0),
+            6,
+            cv2.LINE_4);
+
+
+plt.imshow(cv2.cvtColor(img,cv2.COLOR_BGR2RGB))
+
+
+
+
+
+#input-video
+import cv2 
+
+from deepfaceimport DeepFace
+faceCascade=cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml’)
+cap=cv2.VideoCapture(1) 
+if not cap.isOpened(): 
+cap=cv2.VideoCapture(0)
+if not cap.isOpened(): 
+raise IOError("Cannotopen Webcam")
+while True: 
+ret,frame=cap.read() 
+result=DeepFace.analyze(frame,actions=['emotion'])
+gray=cv2.cvtColor(frame,cv2.COLOR_BGR2GRAY) 
+faces=faceCascade.detectMultiScale(gray,1.1,4) 
+for(x,y,w,h) in faces: 
+      cv2.rectangle(frame,(x,y),(x+w,y+h),(0,255,0),2)
+   font=cv2.FONT_HERSHEY_SIMPLEX
+
+   cv2.putText(frame, 
+                result['dominant_emotion'],
+               (100,300),
+               font,4,
+               (0,255,0),4, 
+               cv2.LINE_4)
+
+   cv2.imshow('demo video',frame)
+   if cv2.waitKey(2)&0xFF==ord('q'): 
+break 
+cap.release()
+
+cv2.destroyAllWindows()
